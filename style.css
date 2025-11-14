@@ -22,30 +22,84 @@ body{
   line-height:1.35;
 }
 
-/* --- Header --- */
+/* ========================= */
+/*      HEADER UPDATED       */
+/* ========================= */
+
 .nav{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:24px;padding:18px 28px;
-  position:sticky;top:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:18px 28px;
+  position:sticky;
+  top:0;
   background:linear-gradient(180deg, rgba(10,10,10,0.6), rgba(10,10,10,0.2));
   backdrop-filter:blur(6px);
-  z-index:40;border-bottom:1px solid rgba(255,255,255,0.03);
+  z-index:40;
+  border-bottom:1px solid rgba(255,255,255,0.03);
 }
-.brand{display:flex;align-items:center;gap:12px}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* ------ LOGO FIXED ------ */
 .logo{
-  width:44px;height:44px;border-radius:10px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  display:grid;place-items:center;
-  font-weight:800;color:#111;font-size:18px;
-  box-shadow:0 6px 18px rgba(225,17,17,0.12), inset 0 -6px 18px rgba(0,0,0,0.25);
+  width:auto;
+  height:auto;
+  display:flex;
+  align-items:center;
 }
-.brand h1{font-size:18px;margin:0}
-.menu{display:flex;gap:18px;align-items:center}
-.menu a{color:var(--muted);text-decoration:none;font-weight:600}
+
+.logo img{
+  width:40px;          /* tamaño del logo */
+  height:40px;
+  object-fit:cover;    /* evita deformación */
+  border-radius:10px;
+  border:2px solid var(--accent);
+  background:#111;
+  box-shadow:0 6px 18px rgba(225,17,17,0.22);
+}
+
+.brand h1{
+  font-size:20px;
+  margin:0;
+  font-weight:700;
+  color:var(--accent-2);
+}
+
+.menu{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.menu a{
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.menu a:hover{
+  color:var(--accent);
+}
+
 .cta{
   background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  padding:10px 14px;border-radius:10px;
-  color:#111;font-weight:700;text-decoration:none
+  padding:10px 14px;
+  border-radius:10px;
+  color:#111;
+  font-weight:700;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.cta:hover{
+  background:linear-gradient(90deg,#b00,#ff1b1b);
 }
 
 /* --- Hero --- */
@@ -75,6 +129,16 @@ body{
   font-weight:800;color:#111;font-size:24px
 }
 
+.avatar img{
+  width:75px;          /* tamaño del logo */
+  height:75px;
+  object-fit:cover;    /* evita deformación */
+  border-radius:10px;
+  border:2px solid var(--accent);
+  background:#111;
+  box-shadow:0 6px 18px rgba(225,17,17,0.22);
+}
+
 /* --- Projects grid --- */
 .section{max-width:1100px;margin:30px auto;padding:0 18px}
 .section h3{margin:0 0 16px 0}
@@ -94,7 +158,7 @@ body{
 .card h4{margin:0 0 8px 0}
 .card p{color:var(--muted);font-size:14px;margin:0}
 
-/* Cartoon fire */
+/* ---- Fire ---- */
 .card .fire{
   position:absolute;left:50%;transform:translateX(-50%);
   bottom:-42px;width:72%;height:90px;

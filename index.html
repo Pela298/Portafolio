@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portafolio — Rojo & Negro</title>
+  <title>Portafolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="nav">
     <div class="brand">
-      <div class="logo"><img src="logo"></div>
+      <div class="logo"><img src="logo.png"></div>
       <h1>Demian Maddalena</h1>
     </div>
     <nav class="menu">
@@ -23,8 +23,8 @@
   <main>
     <section class="hero">
       <div class="intro">
-        <h2>Diseño & Desarrollo — Portafolio personal</h2>
-        <p>Versión inspirada en el estilo moderno, con paleta roja y negra. Tarjetas con animación de fuego estilo caricatura — llamativa pero no realista.</p>
+        <h1>Portafolio personal</h1>
+        <p></p>
         <div class="links">
           <a href="#projects">Ver proyectos</a>
           <a href="#about">Mi historia</a>
@@ -32,10 +32,10 @@
       </div>
 
       <aside class="profile-card">
-        <div class="avatar">DM</div>
+        <div class="avatar"><img src="logo.png"></div>
         <div>
           <strong>Demian Maddalena</strong>
-          <div style="color:var(--muted);font-size:13px;margin-top:6px">Diseñador / Frontend Developer</div>
+          <div style="color:var(--muted);font-size:13px;margin-top:6px">Frontend / Backend</div>
         </div>
       </aside>
     </section>
@@ -44,17 +44,18 @@
       <h3>Proyectos seleccionados</h3>
       <div class="grid">
 
-        <article class="card">
-          <div class="smoke"></div>
-          <h4>Proyecto One</h4>
-          <p>Un proyecto donde jugué con animaciones y UI. HTML/CSS/JS.</p>
-          <div class="fire" aria-hidden="true">
-            <span class="flame outer"></span>
-            <span class="flame middle"></span>
-            <span class="flame inner"></span>
-            <span class="flame middle"></span>
-          </div>
-        </article>
+        <article class="card" onclick="location.href='https://github.com/fludx/SistemaGestion'" style="cursor:pointer;">
+  <div class="smoke"></div>
+  <h4>Proyecto GestionUsuario</h4>
+  <p>Proyecto anual realizado en C# y SQL</p>
+
+  <div class="fire" aria-hidden="true">
+    <span class="flame outer"></span>
+    <span class="flame middle"></span>
+    <span class="flame inner"></span>
+    <span class="flame middle"></span>
+  </div>
+</article>
 
         <article class="card">
           <div class="smoke"></div>
