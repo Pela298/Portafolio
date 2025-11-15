@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Libro Animado con GSAP</title>
+
+<style>
+    body {
+        background: #0e0e12;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+    }
+
+    .book-container {
+        perspective: 1600px;
+        position: relative;
+    }
+
+    /* ------------------- LIBRO ------------------- */
+    .book {
+        width: 220px;
+        height: 260px;
+        position: relative;
+        cursor: pointer;
+        transform-style: preserve-3d;
+        animation: float 3s ease-in-out infinite;
+        z-index: 10;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-18px); }
+        100% { transform: translateY(0px); }
+    }
+
+    /* ------------------- TAPA ------------------- */
+    .cover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #2b0000, #000);
+        border: 4px solid #c40000;
+        border-radius: 4px;
+        backface-visibility: hidden;
+        transform-origin: left center;
+        box-shadow: 0 0 25px 10px rgba(200, 0, 0, 0.3);
+        z-index: 2;
+    }
+
+    /* ------------------- HOJA PLANA ------------------- */
+    .page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: white;
+        border-radius: 4px;
+        padding: 20px;
+        box-sizing: border-box;
+        backface-visibility: hidden;
+        opacity: 1;
+        z-index: 1;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* ------------------- GLOW ------------------- */
+    .glow {
+        position: absolute;
+        width: 300px;
+        height: 350px;
+        border-radius: 50%;
+        background: radial-gradient(rgba(255,0,0,0.5), rgba(0,0,0,0));
+        filter: blur(35px);
+        animation: glowPulse 2.5s infinite ease-in-out;
+        z-index: 1;
+    }
+
+    @keyframes glowPulse {
+        0% { transform: scale(1); opacity: 0.4; }
+        50% { transform: scale(1.2); opacity: 0.8; }
+        100% { transform: scale(1); opacity: 0.4; }
+    }
+
+    /* ------------------- FONDO ------------------- */
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 5;
+    }
+</style>
+</head>
+<body>
+
+<!-- FONDO DESPUÉS DE ABRIR -->
+<div class="background" id="bg"
+     style="background-image: url('TU_IMAGEN_AQUI.jpg');">
+</div>
+
+<div class="book-container">
+    <div class="glow"></div>
+
+    <div class="book" id="book">
+
+        <!-- HOJA PLANA -->
+        <div class="page"
+             style="background-image: url('pagina1.jpg');">
+            <h2>Página Principal</h2>
+            <p>Bienvenido a mi portafolio interactivo ✨</p>
+        </div>
+
+        <!-- TAPA -->
+        <div class="cover"></div>
+
+    </div>
+</div>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+    const book = document.getElementById("book");
+    const cover = document.querySelector(".cover");
+    const bg = document.getElementById("bg");
+
+    /* =============================
+       TIMELINE GSAP
+       ============================= */
+
+    const tl = gsap.timeline({ paused: true });
+
+    // Etapa 1: parar flotación y abrir tapa
+    tl.to(book, { animation: "none", duration: 0 });
+
+    tl.to(cover, {
+        rotateY: -160,
+        duration: 1.2,
+        ease: "power3.inOut"
+    });
+
+    // Etapa 2: agrandar libro y mostrar fondo
+    tl.to(book, {
+        scale: 1.7,
+        y: -40,
+        z: 250,
+        rotateX: 6,
+        duration: 1.0,
+        ease: "power2.out"
+    }, "-=0.3");
+
+    tl.to(bg, {
+        opacity: 1,
+        duration: 1,
+        ease: "power1.out"
+    }, "-=0.6");
+
+    /* =============================
+       EVENTO CLICK
+       ============================= */
+    book.addEventListener("click", () => {
+        if (tl.progress() === 0) {
+            tl.play();
+        } else {
+            tl.reverse();
+        }
+    });
+</script>
+
+</body>
+</html>
