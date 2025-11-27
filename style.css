@@ -15,7 +15,11 @@ html,body{height:100%;}
 body{
   margin:0;
   font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-  background:linear-gradient(180deg,var(--bg),#0a0a0a 60%);
+  
+  
+  background: url("fondox.jpg") no-repeat center center fixed;
+  background-size: cover;
+
   color:#eee;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -104,7 +108,7 @@ body{
 
 /* --- Hero --- */
 .hero{
-  max-width:1100px;margin:40px auto;padding:40px 18px;
+  max-width:1100px;margin:90px auto 40px auto;padding:40px 18px;
   display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;
 }
 .intro h2{margin:0;font-size:28px;letter-spacing:-0.5px}
@@ -118,20 +122,20 @@ body{
 
 .profile-card{
   background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  padding:18px;border-radius:16px;
-  display:flex;gap:12px;align-items:center;
+  padding:26px;border-radius:20px;
+  display:flex;gap:18px;align-items:center;
   box-shadow:0 12px 30px rgba(0,0,0,0.6);
 }
 .avatar{
-  width:84px;height:84px;border-radius:14px;
+  width:115px;height:115px;border-radius:18px;
   background:linear-gradient(180deg,var(--accent-2),var(--accent));
   display:grid;place-items:center;
   font-weight:800;color:#111;font-size:24px
 }
 
 .avatar img{
-  width:75px;          /* tamaño del logo */
-  height:75px;
+  width:105px;          /* tamaño del logo */
+  height:105px;
   object-fit:cover;    /* evita deformación */
   border-radius:10px;
   border:2px solid var(--accent);
